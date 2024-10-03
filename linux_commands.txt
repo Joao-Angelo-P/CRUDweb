@@ -1,0 +1,18 @@
+> ls -> para ver o que há no diretorio e "-la" para ver pastas com ponto (.exemplo)
+> cd -> para mudar de diretorio onde estou
+> which python3 -> para ver a versão e qual Python estou usando, se é do proprio sistema ou ambiente virtual
+> python -m venv .venv -> criar um ambiente virtualizado
+> source .venv/bin/activate ou bin/activate -> para ativar o ambiente virtual
+> pwd -> diretorio onde estou
+
+
+> git status -> para ver como está o projeto
+> git add . -> adiciona todas as modificaçoes
+> git commit -m "mensagem" -> truncam as mudancas
+> git push origin main -> leva todas as mudacas para diretorio do GitHub
+
+> rm -rf pasta -> remove a pasta(ex: pasta)
+> touch file -> cria um arquivo
+> nano file -> entra no arquivo e pode ser escrito/gravado
+
+# Há muitos outros
