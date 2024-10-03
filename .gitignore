@@ -1,1 +1,3 @@
+# Python Enviroment for ignore this settings
 .venv
+ __pycache__/
