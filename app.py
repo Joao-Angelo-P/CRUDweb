@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__) # Initialize the application
 
@@ -6,7 +6,8 @@ lUser = list() # uma lista para guardar os numeros inseridos na url
 # Montar uma view na 'root'
 @app.route('/', methods=['GET'])
 def index() -> str:
-	return '<h1>Mensagem</h1>'
+	user_agent = request.headers.get('User-Agent')
+	return '<h1>Mensagem</h1>' + '<br>' + '<p>Your browser is %s </p>' % user_agent
 
 # Outra view com uma variavel na url
 @app.route('/user/<string:id>', methods=['GET'])
