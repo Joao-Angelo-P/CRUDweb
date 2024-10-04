@@ -14,5 +14,7 @@
 > rm -rf pasta -> remove a pasta(ex: pasta)
 > touch file -> cria um arquivo
 > nano file -> entra no arquivo e pode ser escrito/gravado
+> mv file_or_directory_old file_or_directory_new -> este comando é usado tanto para pasta quanto para arquivo e serve
+para renomear.
 
 # Há muitos outros

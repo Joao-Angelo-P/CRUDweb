@@ -1,0 +1,6 @@
+# Mostrando as url configuradas
+# @app.route() --> mesmo que app.add_url_rule()
+(.venv)> python # não esquecer se o ambiente virtual está ativado
+>>> from app import app
+>>> app.url_map # vai mostrar as url que você configurou e o tipo de "request" e a /static/<filename> que é padrão do framework, que serve 
+aplicacao de arquivos estáticos(.html/.htm, .css, .js)
