@@ -16,5 +16,6 @@
 > nano file -> entra no arquivo e pode ser escrito/gravado
 > mv file_or_directory_old file_or_directory_new -> este comando é usado tanto para pasta quanto para arquivo e serve
 para renomear.
+> pip freeze > requirements.txt -> bibliotecas não-padrão instaladas no projeto
 
 # Há muitos outros
