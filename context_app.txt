@@ -1,0 +1,10 @@
+# Há dois tipos de variaveis -> request context e application context
+> python
+>>> from flask import current_app # application context variable
+>>> from app import app # importação do objeto app = Flask(__name__) do arquivo app.py
+>>> current_app.name -> aqui como não tem um contexto onde a aplicação está rodando vai gerar um erro
+>>> app_ctx = app.app_context() -> vai gerar um contexto para aplicação, mas precisar ainda do push()
+>>> app_ctx.push() -> contexto gerado
+>>> current_app.name -> neste momento o comando gerar o nome da aplicação
+>>> app_ctx.pop() -> desliga a aplicação
+>>> ^Z (CTRL + Z) -> para sair Python Shell
