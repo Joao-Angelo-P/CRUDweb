@@ -19,5 +19,7 @@ para renomear.
 > pip freeze > requirements.txt -> bibliotecas não-padrão instaladas no projeto
 > mkdir <pasta> -> cria uma pasta
 > && -> operador para incluir outras instruções/comandos, ex: > touch file.txt && touch file2.txt -> cria dois arquivos de texto
+> whoami -> mostra o usuário da sessão
+> <tab> -> para completar nomes de arquivo, pastas...
 
 # Há muitos outros
