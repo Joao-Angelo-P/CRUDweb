@@ -1,4 +1,5 @@
 # Python Enviroment for ignore this settings
 __pycache__
 .venv
+.*
 # templates
