@@ -16,6 +16,10 @@ source .venv/bin/activate
 ```
 which python3
 ```
+### Install the requirements
+```
+pip install -r requirements.txt
+```
 ### Steps to configure a app on virtul variable system to run flask command
 ```
 nano .venv/bin/activate
