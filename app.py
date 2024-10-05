@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
+from flask_bootstrap import Bootstrap
 #from flask_script import Manager
 
 app = Flask(__name__) # Initialize the application
+bootstrap = Bootstrap(app) # Use a Bootstrap module with Jinja2 engine
 #manager = Manager(app)
 
 lUser = list() # uma lista para guardar os numeros inseridos na url
@@ -19,7 +21,7 @@ def user(id) -> dict:
 	return {"user": f"Ola user {id}°"}
 # Outra view com uma variavel na url
 """
-@app.route('/index')
+@app.route('/')
 def index():
 	# Vai renderizar a página inicial (Index) com o template que está na pasta: /templates/index.html
 	return render_template('index.html'), 200
