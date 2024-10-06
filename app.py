@@ -1,10 +1,13 @@
 from flask import Flask, request, render_template
 from flask_bootstrap import Bootstrap
+from flask_moment import Moment
+from datetime import datetime
 #from flask_script import Manager
 
 app = Flask(__name__) # Initialize the application
 bootstrap = Bootstrap(app) # Use a Bootstrap module with Jinja2 engine
-#manager = Manager(app)
+moment = Moment(app)
+# manager = Manager(app)
 
 lUser = list() # uma lista para guardar os numeros inseridos na url
 # Montar uma view na 'root'
@@ -24,7 +27,7 @@ def user(id) -> dict:
 @app.route('/')
 def index():
 	# Vai renderizar a página inicial (Index) com o template que está na pasta: /templates/index.html
-	return render_template('index.html'), 200
+	return render_template('index.html', current_time=datetime.utcnow()), 200
 
 
 @app.route('/user/<name>')

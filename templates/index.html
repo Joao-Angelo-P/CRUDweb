@@ -3,5 +3,7 @@
 {% block page_header %}
 <div class="page-header">
   <h1>Home</h1>
+  <p>Data/Hora Local: {{ moment(current_time).format('LLL') }}</p>
+  <p>Era: {{ moment(current_time).fromNow(refresh=True) }}</p>
 </div>
 {% endblock %}
