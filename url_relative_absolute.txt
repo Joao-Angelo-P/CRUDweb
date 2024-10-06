@@ -1,0 +1,2 @@
+Relative URL are sufficient when use in application routes
+Absolute URL are necessary for external service, ex: send e-mail with link
