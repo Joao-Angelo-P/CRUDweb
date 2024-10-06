@@ -22,4 +22,5 @@ para renomear.
 > whoami -> mostra o usuário da sessão
 > <tab> -> para completar nomes de arquivo, pastas...
 > <right click> -> util se voce copia algo fora do terminal e quer colar(<right click>)
+> deactivate -> desativar ambiente virtual
 # Há muitos outros
