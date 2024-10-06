@@ -23,4 +23,5 @@ para renomear.
 > <tab> -> para completar nomes de arquivo, pastas...
 > <right click> -> util se voce copia algo fora do terminal e quer colar(<right click>)
 > deactivate -> desativar ambiente virtual
+> clear -> limpar tela 
 # Há muitos outros
