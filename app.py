@@ -32,9 +32,13 @@ def user(name):
 	# Vai passar uma variável na url e renderizar o template na pasta: /templates/user.html
 	return render_template('user.html', name=name), 200
 
+@app.errorhandler(404)
+def page_not_found(e):
+	return render_template('404.html'), 404
 
-
-
+@app.errorhandler(500)
+def server_internal_error(e):
+	return render_template('500.html'), 500
 
 if __name__ == '__main__': # Se rodar o programa pelo comando "python index.py", vai iniciar a aplicação
 	app.run()
