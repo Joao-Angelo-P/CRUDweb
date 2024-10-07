@@ -1,15 +1,25 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, url_for
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired # WTForms > 3.x, from wtforms.validators import DataRequired, less version from wtforms.validators import Required
 #from flask_script import Manager
 
 app = Flask(__name__) # Initialize the application
+app.config['SECRET_KEY'] = 'difcil_para_descobrir' # pode ser salva como variavel do ambiente
+
 bootstrap = Bootstrap(app) # Use a Bootstrap module with Jinja2 engine
 moment = Moment(app)
 # manager = Manager(app)
 
 lUser = list() # uma lista para guardar os numeros inseridos na url
+
+class NameForm(FlaskForm):
+	name = StringField('Qual é seu nome?', validators=[DataRequired()])
+	submit = SubmitField('Submit')
+
 # Montar uma view na 'root'
 """
 @app.route('/', methods=['GET'])
@@ -24,10 +34,15 @@ def user(id) -> dict:
 	return {"user": f"Ola user {id}°"}
 # Outra view com uma variavel na url
 """
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+	name = None
+	form = NameForm()
+	if form.validate_on_submit():
+		name = form.name.data
+		form.name.data = ''
 	# Vai renderizar a página inicial (Index) com o template que está na pasta: /templates/index.html
-	return render_template('index.html', current_time=datetime.utcnow()), 200
+	return render_template('index.html', current_time=datetime.utcnow(), form=form, name=name), 200
 
 
 @app.route('/user/<name>')
