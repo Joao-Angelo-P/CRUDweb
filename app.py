@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for, redirect, session
+from flask import Flask, request, render_template, url_for, redirect, session, flash
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
@@ -39,11 +39,14 @@ def index():
 	# name = None -> não vai mais precisar. Usa-se session para armazenar o nome inserido no formulario
 	form = NameForm()
 	if form.validate_on_submit():
+		old_name = session.get('name')
+		if old_name is not None and old_name != form.name.data:
+			flash('Parece que você mudou de nome!')
 		# name = form.name.data
 		# form.name.data = ''
 		# POST REDIRECT / GET Pattern
 		session['name'] = form.name.data
-		print(session.get('name'))
+		form.name.data = ''
 		return redirect(url_for('index'))
 	# Vai renderizar a página inicial (Index) com o template que está na pasta: /templates/index.html
 	return render_template('index.html', current_time=datetime.utcnow(), form=form, name=session.get('name')), 200
