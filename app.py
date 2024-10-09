@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, url_for
+from flask import Flask, request, render_template, url_for, redirect, session
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from datetime import datetime
@@ -36,13 +36,17 @@ def user(id) -> dict:
 """
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	name = None
+	# name = None -> não vai mais precisar. Usa-se session para armazenar o nome inserido no formulario
 	form = NameForm()
 	if form.validate_on_submit():
-		name = form.name.data
-		form.name.data = ''
+		# name = form.name.data
+		# form.name.data = ''
+		# POST REDIRECT / GET Pattern
+		session['name'] = form.name.data
+		print(session.get('name'))
+		return redirect(url_for('index'))
 	# Vai renderizar a página inicial (Index) com o template que está na pasta: /templates/index.html
-	return render_template('index.html', current_time=datetime.utcnow(), form=form, name=name), 200
+	return render_template('index.html', current_time=datetime.utcnow(), form=form, name=session.get('name')), 200
 
 
 @app.route('/user/<name>')
